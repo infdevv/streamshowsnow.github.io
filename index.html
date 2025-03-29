@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlix | Watch Free Movies & TV Shows Online</title>
+  <meta name="description" content="StreamFlix lets you watch free movies and TV shows online in high quality. No sign-up required. Stream instantly.">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    #mainContent {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="mainContent" style="display: none;">
+    <h1>Welcome to StreamFlix</h1>
+    <p>Enjoy unlimited access to movies and TV shows. Stream online with no account needed. Safe, fast, and free.</p>
+    <iframe src="https://watch.streamflix.one/" style="height: 100%; width: 100%; border: none;"></iframe>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const captchaPassed = params.get("captcha_complete") === "1";
+
+    if (captchaPassed) {
+      document.getElementById("mainContent").style.display = "block";
+    } else {
+      // Redirect to captcha
+      const currentURL = window.location.origin + window.location.pathname;
+      const returnURL = encodeURIComponent(currentURL + "?captcha_complete=1");
+      window.location.href = "https://cuty.io/anUlZOBLYBkc"; // assumes this redirects to your site after
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoStreamingService",
+    "name": "StreamFlix",
+    "sameAs": ["https://streamflix.web.app/"]
+  }
+  </script>
+</body>
+</html>
